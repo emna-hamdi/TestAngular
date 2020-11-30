@@ -1,0 +1,32 @@
+<div class="row mt-5">
+  <div class="offset-md-5  col-md-5 ">
+    <a routerLink="/register" class="btn btn-success" style="width: 200px;">Ajouter</a>
+  </div>
+  <div class="offset-2 col-8 mt-2">
+    <table class="table table-hover table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Catégorie</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let blog of blogs ;let i= index">
+          <td><span>{{ i }}</span> </td>
+          <td>{{blog.title | uppercase}} </td>
+          <td>{{blog.description | lowercase}} </td>
+          <td>{{blog.categorie | uppercase}} </td>
+          <td>{{blog.date}} </td>
+          <td class="text-center">
+            <button class="btn btn-info mr-3" (click)="deletBlog(i)">Delete</button>
+            <a class="btn btn-danger" [routerLink]="['/update', i]">Update</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
